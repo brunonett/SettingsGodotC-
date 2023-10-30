@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bd27wnfcfsodr"]
+
+[ext_resource type="Script" path="res://Scripts/SwitchSM.cs" id="1_ovfge"]
+
+[node name="SwitchSM" type="Node"]
+script = ExtResource("1_ovfge")

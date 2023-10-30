@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://doj6d0s0vx3a0"]
+
+[ext_resource type="Script" path="res://Scripts/Player/CameraControle.cs" id="1_ugkxi"]
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_kg6ye"]
+margin = 0.2
+
+[node name="CameraControle" type="Node3D"]
+script = ExtResource("1_ugkxi")
+
+[node name="CenterCamera" type="Marker3D" parent="."]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CenterCamera"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0.5)
+shape = SubResource("SeparationRayShape3D_kg6ye")
+spring_length = 4.0
+
+[node name="Camera3D" type="Camera3D" parent="CenterCamera/SpringArm3D"]
+transform = Transform3D(1, 2.44943e-15, 0, -2.44943e-15, 1, 5.96047e-08, 0, -5.96047e-08, 1, 0, 0, 4)
+current = true

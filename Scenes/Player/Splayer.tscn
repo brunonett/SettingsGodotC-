@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2i5ray5g2kns"]
+
+[ext_resource type="Script" path="res://Scripts/Player/Player.cs" id="1_r3fp2"]
+[ext_resource type="PackedScene" uid="uid://doj6d0s0vx3a0" path="res://Scenes/Player/CameraControle.tscn" id="2_wjwyt"]
+[ext_resource type="PackedScene" uid="uid://bhltaq0fcwrnt" path="res://Scenes/Player/MenuPause.tscn" id="3_m8ypt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gxgcn"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0l4ph"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_odb6e"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jl3xx"]
+size = Vector3(0.2, 0.2, 1)
+
+[node name="Splayer" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.93285, 0)
+
+[node name="Player" type="CharacterBody3D" parent="."]
+collision_layer = 2
+script = ExtResource("1_r3fp2")
+
+[node name="CenterPlayer" type="Marker3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.74076, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_gxgcn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01657, 0)
+mesh = SubResource("CapsuleMesh_0l4ph")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_odb6e")
+
+[node name="Frente" type="MeshInstance3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1)
+mesh = SubResource("BoxMesh_jl3xx")
+skeleton = NodePath("../..")
+
+[node name="CameraControle" parent="." instance=ExtResource("2_wjwyt")]
+
+[node name="MenuPause" parent="." instance=ExtResource("3_m8ypt")]
+
+[editable path="CameraControle"]

@@ -1,0 +1,60 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwf3tliixh6e7"]
+
+[ext_resource type="Script" path="res://Scripts/Menu.cs" id="1_68f61"]
+[ext_resource type="PackedScene" uid="uid://bd27wnfcfsodr" path="res://Scenes/SwitchSM.tscn" id="2_rhf4d"]
+
+[node name="Menu" type="Control" node_paths=PackedStringArray("wait", "BTWFocus")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_68f61")
+wait = NodePath("Timer")
+BTWFocus = NodePath("VBoxContainer/Iniciar")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="SwitchSM" parent="." instance=ExtResource("2_rhf4d")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.461
+anchor_top = 0.382
+anchor_right = 0.539
+anchor_bottom = 0.618
+offset_left = 14.3359
+offset_top = 24.5919
+offset_right = -14.3361
+offset_bottom = -24.592
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Iniciar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Sair")
+text = "Iniciar"
+
+[node name="Continiar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Continiar
+"
+
+[node name="Opcoes" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Opcoes"
+
+[node name="Sair" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Iniciar")
+text = "Sair"
+
+[connection signal="pressed" from="VBoxContainer/Iniciar" to="." method="on_iniciar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Continiar" to="." method="on_continiar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Opcoes" to="." method="on_opcoes_pressed"]
+[connection signal="pressed" from="VBoxContainer/Sair" to="." method="on_sair_pressed"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqcv2il4q762f"]
+
+[ext_resource type="Script" path="res://Scripts/GM.cs" id="1_j4ufm"]
+[ext_resource type="Script" path="res://Scripts/CM.cs" id="2_toh1c"]
+[ext_resource type="Script" path="res://Scripts/SM.cs" id="3_n75fd"]
+[ext_resource type="Script" path="res://Scripts/Graphics.cs" id="4_qpo0u"]
+[ext_resource type="Script" path="res://Scripts/SaveSettings.cs" id="5_vo68p"]
+
+[node name="GM" type="Node"]
+script = ExtResource("1_j4ufm")
+
+[node name="CM" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_toh1c")
+
+[node name="SM" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_n75fd")
+
+[node name="Graphics" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("4_qpo0u")
+
+[node name="SaveSettings" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("5_vo68p")
+
+[node name="FPS" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FPS" type="Label" parent="FPS"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.042
+anchor_bottom = 0.037
+offset_right = -0.640007
+offset_bottom = 0.0400009
